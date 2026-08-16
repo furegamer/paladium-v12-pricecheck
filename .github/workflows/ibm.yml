@@ -19,17 +19,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Récupérer le site
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configurer GitHub Pages
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Préparer le site
+      - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
 
-      - name: Publier le site
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
